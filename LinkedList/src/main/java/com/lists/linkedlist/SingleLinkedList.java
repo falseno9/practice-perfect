@@ -1,11 +1,5 @@
 package com.lists.linkedlist;
 
-
-import java.util.List;
-
-/**
- * Created by Kunal on 2/14/2016.
- */
 public class SingleLinkedList {
 
     public int listLength(ListNode node) {
@@ -14,9 +8,10 @@ public class SingleLinkedList {
             return length;
         }
 
-        while (node.getNext() != null) {
+        do  {
             length++;
-        }
+            node = node.getNext();
+        } while (node != null);
         return length;
     }
 

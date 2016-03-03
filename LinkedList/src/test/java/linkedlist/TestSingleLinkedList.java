@@ -2,21 +2,57 @@ package linkedlist;
 
 import com.lists.linkedlist.ListNode;
 import com.lists.linkedlist.SingleLinkedList;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Created by Kunal on 2/22/2016.
- */
 public class TestSingleLinkedList {
 
+    public final ListNode node = new ListNode();
+
+    @Before
+    public void setUp () {
+        ListNode node3 = new ListNode();
+        node3.setObj(3);
+        node3.setNext(null);
+        ListNode node2 = new ListNode();
+        node2.setObj(2);
+        node2.setNext(node3);
+        node.setObj(1);
+        node.setNext(node2);
+
+
+    }
+
     @Test
-    void testListLength() {
+    public void testListLength() {
 
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        ListNode node = new ListNode();
-        node.setObj(new Integer (5));
-        ListNode node2 = new ListNode();
-        singleLinkedList.listLength()
+        Assert.assertEquals(3, singleLinkedList.listLength(node));
 
+    }
+
+    @Test
+    public void testInsertNode() {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        ListNode nodeToInsert = new ListNode();
+        nodeToInsert.setObj(4);
+        ListNode head = singleLinkedList.insertNode(nodeToInsert, node, 4);
+        Assert.assertEquals(4, singleLinkedList.listLength(head));
+        while (head != null) {
+            System.out.println(head.getObj());
+            head = head.getNext();
+        }
+    }
+
+    @Test
+    public void testDeleteNode() {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        ListNode head = singleLinkedList.deleteNode(node, 2);
+        Assert.assertEquals(2, singleLinkedList.listLength(head));
+        while (head != null) {
+            System.out.println(head.getObj());
+            head = head.getNext();
+        }
     }
 }

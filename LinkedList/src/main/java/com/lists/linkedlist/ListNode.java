@@ -1,8 +1,5 @@
 package com.lists.linkedlist;
 
-/**
- * Created by Kunal on 2/14/2016.
- */
 public class ListNode {
 
     private ListNode next;
@@ -12,6 +9,9 @@ public class ListNode {
         this.next = next;
         this.obj = obj;
     }
+
+    public ListNode() {}
+
 
     public Object getObj() {
         return obj;
