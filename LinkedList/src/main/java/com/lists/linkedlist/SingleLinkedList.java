@@ -50,9 +50,13 @@ public class SingleLinkedList {
         } else {
             ListNode previousNode = head;
             while (curr < position - 1) {
-                
+                if (curr < position - 1) {
+                    previousNode = previousNode.getNext();
+                    curr++;
+                }
+                ListNode nextNode = previousNode.getNext();
+                previousNode.setNext(nextNode.getNext());
             }
-
         }
     return head;
     }
