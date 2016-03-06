@@ -1,4 +1,4 @@
-package linkedlist;
+package com.lists.linkedlist;
 
 import com.lists.linkedlist.ListNode;
 import com.lists.linkedlist.SingleLinkedList;

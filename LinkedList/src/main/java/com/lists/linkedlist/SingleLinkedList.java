@@ -44,14 +44,14 @@ public class SingleLinkedList {
             return head.getNext();
         } else {
             ListNode previousNode = head;
-            while (curr <= position - 1) {
-                if (curr <= position - 1) {
+            do {
+                if (curr < position - 1) {
                     previousNode = previousNode.getNext();
                     curr++;
                 }
                 ListNode nextNode = previousNode.getNext();
                 previousNode.setNext(nextNode.getNext());
-            }
+            } while (curr < position - 1);
         }
     return head;
     }
