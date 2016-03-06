@@ -2,7 +2,7 @@ package com.lists.linkedlist;
 
 public class SingleLinkedList {
 
-    public int listLength(ListNode node) {
+    public int listLength(SingleListNode node) {
         int length = 0;
         if (node == null) {
             return length;
@@ -15,7 +15,7 @@ public class SingleLinkedList {
         return length;
     }
 
-    public ListNode insertNode(ListNode nodeToInsert, ListNode head, int position) {
+    public SingleListNode insertNode(SingleListNode nodeToInsert, SingleListNode head, int position) {
 
         int curr = 1;
         if (position == 1) {
@@ -23,33 +23,33 @@ public class SingleLinkedList {
             return nodeToInsert;
         } else {
 
-            ListNode previousNode = head;
+            SingleListNode previousNode = head;
             while (curr < position - 1) {
                 if (curr < position - 1) {
                     previousNode = previousNode.getNext();
                     curr++;
                 }
             }
-            ListNode nextNode = previousNode.getNext();
+            SingleListNode nextNode = previousNode.getNext();
             nodeToInsert.setNext(nextNode);
             previousNode.setNext(nodeToInsert);
         }
         return head;
     }
 
-    public ListNode deleteNode(ListNode head, int position) {
+    public SingleListNode deleteNode(SingleListNode head, int position) {
 
         int curr = 1;
         if(position == 1) {
             return head.getNext();
         } else {
-            ListNode previousNode = head;
+            SingleListNode previousNode = head;
             do {
                 if (curr < position - 1) {
                     previousNode = previousNode.getNext();
                     curr++;
                 }
-                ListNode nextNode = previousNode.getNext();
+                SingleListNode nextNode = previousNode.getNext();
                 previousNode.setNext(nextNode.getNext());
             } while (curr < position - 1);
         }

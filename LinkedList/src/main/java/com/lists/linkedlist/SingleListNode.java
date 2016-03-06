@@ -1,16 +1,16 @@
 package com.lists.linkedlist;
 
-public class ListNode {
+public class SingleListNode {
 
-    private ListNode next;
+    private SingleListNode next;
     private Object obj;
 
-    public ListNode(ListNode next, Object obj) {
+    public SingleListNode(SingleListNode next, Object obj) {
         this.next = next;
         this.obj = obj;
     }
 
-    public ListNode() {}
+    public SingleListNode() {}
 
 
     public Object getObj() {
@@ -21,11 +21,11 @@ public class ListNode {
         this.obj = obj;
     }
 
-    public ListNode getNext() {
+    public SingleListNode getNext() {
         return next;
     }
 
-    public void setNext(ListNode next) {
+    public void setNext(SingleListNode next) {
         this.next = next;
     }
 }

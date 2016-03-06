@@ -1,27 +1,25 @@
 package com.lists.linkedlist;
 
-import com.lists.linkedlist.ListNode;
-import com.lists.linkedlist.SingleLinkedList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestSingleLinkedList {
 
-    public final ListNode node = new ListNode();
+    public final SingleListNode node = new SingleListNode();
 
     @Before
     public void setUp () {
-        ListNode node3 = new ListNode();
+        SingleListNode node3 = new SingleListNode();
         node3.setObj(3);
         node3.setNext(null);
-        ListNode node2 = new ListNode();
+        SingleListNode node2 = new SingleListNode();
         node2.setObj(2);
         node2.setNext(node3);
         node.setObj(1);
         node.setNext(node2);
 
-        ListNode printNode = node;
+        SingleListNode printNode = node;
         System.out.println("Original List");
         while (printNode != null) {
             System.out.println(printNode.getObj());
@@ -40,9 +38,9 @@ public class TestSingleLinkedList {
     @Test
     public void testInsertNode() {
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        ListNode nodeToInsert = new ListNode();
+        SingleListNode nodeToInsert = new SingleListNode();
         nodeToInsert.setObj(4);
-        ListNode head = singleLinkedList.insertNode(nodeToInsert, node, 4);
+        SingleListNode head = singleLinkedList.insertNode(nodeToInsert, node, 4);
         Assert.assertEquals(4, singleLinkedList.listLength(head));
         System.out.println("Modified List");
         while (head != null) {
@@ -54,7 +52,7 @@ public class TestSingleLinkedList {
     @Test
     public void testDeleteNode() {
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        ListNode head = singleLinkedList.deleteNode(node, 2);
+        SingleListNode head = singleLinkedList.deleteNode(node, 2);
         Assert.assertEquals(2, singleLinkedList.listLength(head));
         System.out.println("Modified List");
         while (head != null) {
