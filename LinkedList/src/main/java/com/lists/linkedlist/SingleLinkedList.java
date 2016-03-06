@@ -44,8 +44,8 @@ public class SingleLinkedList {
             return head.getNext();
         } else {
             ListNode previousNode = head;
-            while (curr < position - 1) {
-                if (curr < position - 1) {
+            while (curr <= position - 1) {
+                if (curr <= position - 1) {
                     previousNode = previousNode.getNext();
                     curr++;
                 }
