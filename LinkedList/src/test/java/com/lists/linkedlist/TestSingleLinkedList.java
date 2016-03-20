@@ -40,7 +40,7 @@ public class TestSingleLinkedList {
         SingleLinkedList singleLinkedList = new SingleLinkedList();
         SingleListNode nodeToInsert = new SingleListNode();
         nodeToInsert.setObj(4);
-        SingleListNode head = singleLinkedList.insertNode(nodeToInsert, node, 4);
+        SingleListNode head = singleLinkedList.insertNode(nodeToInsert, node, 2);
         Assert.assertEquals(4, singleLinkedList.listLength(head));
         System.out.println("Modified List");
         while (head != null) {
