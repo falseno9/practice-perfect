@@ -21,6 +21,8 @@ public class SingleLinkedList {
         if (position == 1) {
             nodeToInsert.setNext(head);
             return nodeToInsert;
+
+
         } else {
 
             SingleListNode previousNode = head;
@@ -40,7 +42,7 @@ public class SingleLinkedList {
     public SingleListNode deleteNode(SingleListNode head, int position) {
 
         int curr = 1;
-        if(position == 1) {
+        if (position == 1) {
             return head.getNext();
         } else {
             SingleListNode previousNode = head;
@@ -53,6 +55,6 @@ public class SingleLinkedList {
                 previousNode.setNext(nextNode.getNext());
             } while (curr < position - 1);
         }
-    return head;
+        return head;
     }
 }

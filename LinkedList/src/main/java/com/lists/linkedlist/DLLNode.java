@@ -18,6 +18,10 @@ public class DLLNode {
     public DLLNode() {
     }
 
+    public DLLNode(Object data) {
+        this.obj=data;
+    }
+
     public DLLNode getNext() {
         return next;
     }
