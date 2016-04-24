@@ -7,8 +7,8 @@ import java.util.Stack;
  */
 class Vertex
 {
-    private char label;
-    private boolean visited;
+    public char label;
+    public boolean visited;
     Vertex(char label) {
         this.label = label;
         this.visited = false;
@@ -32,11 +32,35 @@ class DfsGraph {
         }
         theStack = new Stack();
     }
-}
+    public void displayVertex(int v) {
+        System.out.println(vertexList[v].label);
+    }
 
-class DepthFirstSearch {
+    public void dfs() {
+        vertexList[0].visited = true;
+        displayVertex(0);
+        theStack.push(0);
+        while (!theStack.isEmpty()) {
+            int v = getAdjUnvisitedVertex((Integer) theStack.peek());
+            if (v==-1) {
+                theStack.pop();
+            } else {
+                vertexList[v].visited = true;
+                displayVertex(v);
+                theStack.push(v);
+            }
+        }
+        for (int j = 0; j < vertexCount; j++) {
+            vertexList[j].visited = false;
+        }
+    }
 
-    public dfs() {
-
+    public int getAdjUnvisitedVertex(int v) {
+        for (int j=0; j < vertexCount; j++) {
+            if(adjMatrix[v][j] == 1 && vertexList[j].visited==false) {
+                return j;
+            }
+        }
+        return -1;
     }
 }
