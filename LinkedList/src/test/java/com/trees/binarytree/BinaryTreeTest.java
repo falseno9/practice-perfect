@@ -1,5 +1,6 @@
 package com.trees.binarytree;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,5 +51,29 @@ public class BinaryTreeTest {
     public void PostOrderTest() {
         BinaryTree binaryTree = new BinaryTree();
         binaryTree.postOrder(root);
+    }
+
+    @Test
+    public void findMaxTest() {
+        BinaryTree binaryTree = new BinaryTree();
+        Assert.assertEquals(7, binaryTree.findMax(root));
+    }
+
+    @Test
+    public void existsInBTTestTrue() {
+        BinaryTree binaryTree = new BinaryTree();
+        Assert.assertEquals(true, binaryTree.findInBT(root, 7));
+    }
+
+    @Test
+    public void existsInBTTestFalse() {
+        BinaryTree binaryTree = new BinaryTree();
+        Assert.assertEquals(false, binaryTree.findInBT(root, 71));
+    }
+
+    @Test
+    public void existsInBTTestNull() {
+        BinaryTree binaryTree = new BinaryTree();
+        Assert.assertEquals(false, binaryTree.findInBT(null, 7));
     }
 }
