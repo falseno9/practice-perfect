@@ -76,4 +76,16 @@ public class BinaryTreeTest {
         BinaryTree binaryTree = new BinaryTree();
         Assert.assertEquals(false, binaryTree.findInBT(null, 7));
     }
+
+    @Test
+    public void sizeOfBTTest() {
+        BinaryTree binaryTree = new BinaryTree();
+        Assert.assertEquals(7, binaryTree.sizeOfBT(root));
+    }
+
+    @Test
+    public void levelOrderTraversalInReverseTest() {
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.levelOrderTraversalInReverse(root);
+    }
 }

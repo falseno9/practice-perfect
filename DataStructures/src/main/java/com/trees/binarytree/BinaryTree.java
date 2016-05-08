@@ -1,6 +1,8 @@
 package com.trees.binarytree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -103,5 +105,67 @@ public class BinaryTree {
             return true;
         }
         return findInBT(root.getLeft(), data) || findInBT(root.getRight(), data);
+    }
+
+    int sizeOfBT(BinaryTreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftCount = root.getLeft() == null ? 0 : sizeOfBT(root.getLeft());
+        int rightCount = root.getRight() == null ? 0 : sizeOfBT(root.getRight());
+
+        return 1 + leftCount + rightCount;
+    }
+
+    void levelOrderTraversalInReverse(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<BinaryTreeNode> s = new Stack<BinaryTreeNode>();
+        Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            BinaryTreeNode tmp = q.poll();
+            if (tmp.getRight() != null) {
+                q.offer(tmp.getRight());
+            }
+            if (tmp.getLeft() != null) {
+                q.offer(tmp.getLeft());
+            }
+            s.push(tmp);
+        }
+        while (!s.isEmpty()) {
+            System.out.println(s.pop().getData());
+        }
+    }
+
+    int depthOfBT(BinaryTreeNode root) {
+        int leftDepth = depthOfBT(root.getLeft());
+        int rightDepth = depthOfBT(root.getRight());
+        return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
+    }
+
+    int leastDepthOfBT(BinaryTreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
+        q.offer(root);
+        int count = 1;
+        while (!q.isEmpty()) {
+            BinaryTreeNode currentNode = q.poll();
+            if (currentNode.getLeft() == null && currentNode.getRight() == null) {
+                return count;
+            }
+            if (currentNode.getLeft() != null) {
+                q.offer(currentNode.getLeft());
+                count++;
+            }
+            if (currentNode.getRight() != null) {
+                q.offer(currentNode.getRight());
+                count++;
+            }
+        }
+        return count;
     }
 }
