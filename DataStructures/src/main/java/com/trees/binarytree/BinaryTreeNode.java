@@ -9,6 +9,13 @@ public class BinaryTreeNode {
     private BinaryTreeNode right;
     private int data;
 
+    BinaryTreeNode(int data) {
+        this.data = data;
+    }
+
+    BinaryTreeNode() {
+    }
+
     public BinaryTreeNode getLeft() {
         return left;
     }
@@ -31,5 +38,12 @@ public class BinaryTreeNode {
 
     public void setData(int data) {
         this.data = data;
+    }
+
+    public boolean equals(BinaryTreeNode b) {
+        if (this.data == b.getData()) {
+            return true;
+        }
+        return false;
     }
 }

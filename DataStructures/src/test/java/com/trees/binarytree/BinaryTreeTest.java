@@ -8,9 +8,11 @@ import org.junit.Test;
  * Created by Kunal on 3/22/2016.
  */
 public class BinaryTreeTest {
+    BinaryTree binaryTree;
     BinaryTreeNode root = new BinaryTreeNode();
     @Before
     public void setup() {
+        binaryTree = new BinaryTree();
         BinaryTreeNode left1 = new BinaryTreeNode();
         BinaryTreeNode right2 = new BinaryTreeNode();
         BinaryTreeNode left11 = new BinaryTreeNode();
@@ -37,55 +39,61 @@ public class BinaryTreeTest {
 
     @Test
     public void PreOrderTest() {
-        BinaryTree binaryTree = new BinaryTree();
         binaryTree.preOrder(root);
     }
 
     @Test
     public void InOrderTest() {
-        BinaryTree binaryTree = new BinaryTree();
         binaryTree.inOrder(root);
     }
 
     @Test
     public void PostOrderTest() {
-        BinaryTree binaryTree = new BinaryTree();
         binaryTree.postOrder(root);
     }
 
     @Test
     public void findMaxTest() {
-        BinaryTree binaryTree = new BinaryTree();
         Assert.assertEquals(7, binaryTree.findMax(root));
     }
 
     @Test
     public void existsInBTTestTrue() {
-        BinaryTree binaryTree = new BinaryTree();
         Assert.assertEquals(true, binaryTree.findInBT(root, 7));
     }
 
     @Test
     public void existsInBTTestFalse() {
-        BinaryTree binaryTree = new BinaryTree();
         Assert.assertEquals(false, binaryTree.findInBT(root, 71));
     }
 
     @Test
     public void existsInBTTestNull() {
-        BinaryTree binaryTree = new BinaryTree();
         Assert.assertEquals(false, binaryTree.findInBT(null, 7));
     }
 
     @Test
     public void sizeOfBTTest() {
-        BinaryTree binaryTree = new BinaryTree();
         Assert.assertEquals(7, binaryTree.sizeOfBT(root));
     }
 
     @Test
     public void levelOrderTraversalInReverseTest() {
-        BinaryTree binaryTree = new BinaryTree();
         binaryTree.levelOrderTraversalInReverse(root);
+    }
+
+    @Test
+    public void leastDepthOfBTTest() {
+        Assert.assertEquals(3, binaryTree.leastDepthOfBT(root));
+    }
+
+    @Test
+    public void binaryTreeLCATestFound() {
+        Assert.assertEquals(1, binaryTree.binaryTreeLCA(root, new BinaryTreeNode(7), new BinaryTreeNode(5)).getData());
+    }
+
+    @Test
+    public void binaryTreeLCATestNotFound() {
+        Assert.assertEquals(5, binaryTree.binaryTreeLCA(root, new BinaryTreeNode(10), new BinaryTreeNode(5)).getData());
     }
 }

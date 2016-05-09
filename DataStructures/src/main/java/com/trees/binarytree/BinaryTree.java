@@ -151,21 +151,45 @@ public class BinaryTree {
         }
         Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
         q.offer(root);
+        q.offer(null);
         int count = 1;
         while (!q.isEmpty()) {
             BinaryTreeNode currentNode = q.poll();
-            if (currentNode.getLeft() == null && currentNode.getRight() == null) {
-                return count;
-            }
-            if (currentNode.getLeft() != null) {
-                q.offer(currentNode.getLeft());
-                count++;
-            }
-            if (currentNode.getRight() != null) {
-                q.offer(currentNode.getRight());
-                count++;
+            if (currentNode != null) {
+                if (currentNode.getLeft() == null && currentNode.getRight() == null) {
+                    return count;
+                }
+                if (currentNode.getLeft() != null) {
+                    q.offer(currentNode.getLeft());
+                }
+                if (currentNode.getRight() != null) {
+                    q.offer(currentNode.getRight());
+                }
+            } else {
+                if (!q.isEmpty()) {
+                    q.offer(null);
+                    count++;
+                }
             }
         }
         return count;
     }
+
+    BinaryTreeNode binaryTreeLCA(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b) {
+        BinaryTreeNode left, right;
+        if (root == null) {
+            return root;
+        }
+        if (root.equals(a) || root.equals(b)) {
+            return root;
+        }
+        left = binaryTreeLCA(root.getLeft(), a, b);
+        right = binaryTreeLCA(root.getRight(), a, b);
+        if (left != null && right != null) {
+            return root;
+        } else {
+            return left != null ? left : right;
+        }
+    }
+
 }
