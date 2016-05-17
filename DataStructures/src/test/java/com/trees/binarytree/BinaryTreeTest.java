@@ -96,4 +96,13 @@ public class BinaryTreeTest {
     public void binaryTreeLCATestNotFound() {
         Assert.assertEquals(5, binaryTree.binaryTreeLCA(root, new BinaryTreeNode(10), new BinaryTreeNode(5)).getData());
     }
+
+    @Test
+    public void isBSTTest() {
+        System.out.println(binaryTree.findMin(root.getLeft()));
+        System.out.println(binaryTree.findMax(root.getRight()));
+        Assert.assertEquals(false, binaryTree.isBST(root));
+
+
+    }
 }
