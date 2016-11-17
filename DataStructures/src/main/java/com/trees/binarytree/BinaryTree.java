@@ -215,4 +215,42 @@ class BinaryTree {
         }
     }
 
+    boolean isBST(BinaryTreeNode root) {
+        if (root == null) {
+            return true;
+        }
+
+        if(root.getLeft()!= null && findMin(root.getLeft()) > root.getData()) {
+            return false;
+        }
+
+        if(root.getRight() != null && root.getData() > findMax(root.getRight())) {
+            return false;
+        }
+
+        if(!isBST(root.getLeft()) || !isBST(root.getRight())) {
+            return false;
+        }
+
+        return true;
+    }
+
+    int findMin(BinaryTreeNode root) {
+        int minValue = Integer.MAX_VALUE;
+        if (root != null) {
+            int leftMin = findMin(root.getLeft());
+            int rightMin = findMin(root.getRight());
+
+            if (leftMin < rightMin) {
+                minValue = leftMin;
+            } else {
+                minValue = rightMin;
+            }
+
+            if (minValue > root.getData()) {
+                minValue = root.getData();
+            }
+        }
+        return minValue;
+    }
 }

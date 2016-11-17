@@ -98,6 +98,13 @@ public class BinaryTreeTest {
     }
 
     @Test
+    public void isBSTTest() {
+        System.out.println(binaryTree.findMin(root.getLeft()));
+        System.out.println(binaryTree.findMax(root.getRight()));
+        Assert.assertEquals(false, binaryTree.isBST(root));
+    }
+
+    @Test
     public void printLevelsTest() {
         binaryTree.printLevels(root, 2, 3);
     }
