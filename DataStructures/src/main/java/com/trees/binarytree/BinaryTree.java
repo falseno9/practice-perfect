@@ -5,10 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-/**
- * Created by Kunal on 3/22/2016.
- */
-public class BinaryTree {
+class BinaryTree {
 
     void preOrder(BinaryTreeNode treeNode) {
         if (treeNode != null) {
@@ -56,14 +53,12 @@ public class BinaryTree {
         if (!done) {
             if (currentNode != null) {
                 s.push(currentNode);
-                currentNode = currentNode.getLeft();
             } else {
                 if (s.isEmpty()) {
                     done = true;
                 } else {
                     currentNode = s.pop();
                     res.add(currentNode.getData());
-                    currentNode = currentNode.getRight();
                 }
             }
         }
@@ -98,13 +93,7 @@ public class BinaryTree {
     }
 
     boolean findInBT(BinaryTreeNode root, int data) {
-        if (root == null) {
-            return false;
-        }
-        if (root.getData() == data) {
-            return true;
-        }
-        return findInBT(root.getLeft(), data) || findInBT(root.getRight(), data);
+        return root != null && (root.getData() == data || findInBT(root.getLeft(), data) || findInBT(root.getRight(), data));
     }
 
     int sizeOfBT(BinaryTreeNode root) {
@@ -139,7 +128,7 @@ public class BinaryTree {
         }
     }
 
-    int depthOfBT(BinaryTreeNode root) {
+    private int depthOfBT(BinaryTreeNode root) {
         int leftDepth = depthOfBT(root.getLeft());
         int rightDepth = depthOfBT(root.getRight());
         return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
@@ -178,7 +167,7 @@ public class BinaryTree {
     BinaryTreeNode binaryTreeLCA(BinaryTreeNode root, BinaryTreeNode a, BinaryTreeNode b) {
         BinaryTreeNode left, right;
         if (root == null) {
-            return root;
+            return null;
         }
         if (root.equals(a) || root.equals(b)) {
             return root;
@@ -189,6 +178,40 @@ public class BinaryTree {
             return root;
         } else {
             return left != null ? left : right;
+        }
+    }
+
+    void printLevels(BinaryTreeNode root, int low, int high) {
+
+        Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
+        q.offer(root);
+        q.offer(null);
+
+        int lvl = 1;
+        while (!q.isEmpty()) {
+            BinaryTreeNode tmp = q.poll();
+
+            if (tmp == null) {
+                System.out.println("");
+                lvl++;
+
+                if (lvl > high || q.isEmpty()) {
+                    break;
+                }
+
+                q.offer(null);
+                continue;
+            }
+            if (lvl >= low) {
+                System.out.println(tmp.getData() + " ");
+            }
+            if (tmp.getLeft() != null) {
+                q.add(tmp.getLeft());
+            }
+
+            if (tmp.getRight() != null) {
+                q.add(tmp.getRight());
+            }
         }
     }
 

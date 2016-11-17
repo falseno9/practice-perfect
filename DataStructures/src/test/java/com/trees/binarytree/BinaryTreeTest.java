@@ -96,4 +96,9 @@ public class BinaryTreeTest {
     public void binaryTreeLCATestNotFound() {
         Assert.assertEquals(5, binaryTree.binaryTreeLCA(root, new BinaryTreeNode(10), new BinaryTreeNode(5)).getData());
     }
+
+    @Test
+    public void printLevelsTest() {
+        binaryTree.printLevels(root, 2, 3);
+    }
 }
