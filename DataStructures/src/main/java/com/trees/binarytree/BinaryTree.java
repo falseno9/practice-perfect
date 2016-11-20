@@ -253,4 +253,33 @@ class BinaryTree {
         }
         return minValue;
     }
+
+    BinaryTreeNode insertBST(BinaryTreeNode root, int data) {
+
+        BinaryTreeNode newNode = new BinaryTreeNode(data);
+
+        if (root == null) {
+            return newNode;
+        }
+
+        BinaryTreeNode current = root;
+        BinaryTreeNode parent = null;
+
+        while (current != null) {
+            parent = current;
+
+            if (current.getData() < data) {
+                current = current.getRight();
+            } else {
+                current = current.getLeft();
+            }
+        }
+
+        if (parent.getData() <= data) {
+            parent.setRight(newNode);
+        } else {
+            parent.setLeft(newNode);
+        }
+        return root;
+    }
 }

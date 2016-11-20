@@ -12,6 +12,14 @@ public class BinaryTreeTest {
     BinaryTreeNode root = new BinaryTreeNode();
     @Before
     public void setup() {
+        /*
+                        1
+                       / \
+                     2    3
+                    / \   / \
+                   4  5   6  7
+         */
+
         binaryTree = new BinaryTree();
         BinaryTreeNode left1 = new BinaryTreeNode();
         BinaryTreeNode right2 = new BinaryTreeNode();
@@ -107,5 +115,13 @@ public class BinaryTreeTest {
     @Test
     public void printLevelsTest() {
         binaryTree.printLevels(root, 2, 3);
+    }
+
+    @Test
+    public void insertBSTTest() {
+        binaryTree.preOrder(root);
+        binaryTree.insertBST(root, -1);
+        System.out.println("-------------------------");
+        binaryTree.preOrder(root);
     }
 }
