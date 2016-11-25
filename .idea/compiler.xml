@@ -23,11 +23,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="Sorting" />
         <module name="TestProblems" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="LinkedList" target="1.5" />
+      <module name="Sorting" target="1.5" />
       <module name="TestProblems" target="1.5" />
     </bytecodeTargetLevel>
   </component>
