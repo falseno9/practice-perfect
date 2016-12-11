@@ -8,6 +8,9 @@ import java.util.Map;
  */
 public class ShoppingCart {
 
+    private static Map<String, Integer> shoppingBag;
+    private static Integer bagTotal;
+
     class Item {
         String itemLabel;
         Double priceEach;
@@ -65,4 +68,8 @@ public class ShoppingCart {
         itemInventory.put(item.getItemLabel(), item);
     }
 
+    public void scan(String itemLabel) {
+        Item currentItem = itemInventory.get(itemLabel);
+        Integer currentItemCount = shoppingBag`
+    }
 }
